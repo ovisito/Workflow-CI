@@ -31,37 +31,43 @@ Proyek ini merupakan submisi final dari kelas **Membangun Sistem Machine Learnin
 ## 📁 Struktur Folder
 
 ```
-Submission/
-├── MLProject/
-│   ├── conda.yaml
-│   ├── MLproject
-│   └── modelling.py
-├── Workflow-CI/
-│   ├── .github/workflows/
-│   ├── MLProject/
-│   └── Dockerfile
-├── Monitoring dan Logging/
-│   ├── prometheus.yml
-│   ├── inference.py
-│   └── dashboard/
-├── data/
-├── requirements.txt
-└── README.md
-```
+## 📁 Struktur Folder Proyek
 
-## 🚀 Cara Menjalankan
+Struktur proyek ini mengikuti ketentuan submission, dengan fokus utama pada folder `Workflow-CI`.
 
 ```bash
-# Clone repository
-git clone https://github.com/username/submission-mlops.git
-cd submission-mlops
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Jalankan MLflow project
-mlflow run MLProject/
+Workflow-CI/
+├── .workflow/               # Konfigurasi GitHub Actions
+│   └── ci.yml
+├── MLProject/               # MLflow Project
+│   ├── MLProject
+│   ├── conda.yaml
+│   └── modelling.py
+├── namadataset_preprocessing/ # Data hasil preprocessing
+│   ├── X_train.csv
+│   ├── X_test.csv
+│   ├── y_train.csv
+│   └── y_test.csv
+├── Dockerfile               # Containerization
+└── README.md
 ```
+## 🚀 Cara Menjalankan Proyek
+
+1.  **Clone Repository**
+    ```bash
+    git clone https://github.com/ovisito/Workflow-CI.git
+    cd Workflow-CI
+    ```
+
+2.  **Jalankan Proyek MLflow**
+    ```bash
+    mlflow run MLProject/
+    ```
+
+3.  **Bangun Image Docker**
+    ```bash
+    docker build -t bank-marketing-mlops .
+    ```
 
 ## ✅ Kriteria Submisi
 
