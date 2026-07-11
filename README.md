@@ -1,27 +1,49 @@
-# Workflow-CI - Bank Marketing MLOps
+# Membangun Sistem Machine Learning
+
+**Nama Siswa  :** Muhammad Aiyub
+**Tugas       :** Submisi Final — Membangun Sistem Machine Learning
+
+---
 
 ## 📌 Deskripsi Proyek
 
-Proyek ini adalah implementasi **MLOps** untuk dataset Bank Marketing menggunakan:
+Proyek ini merupakan submisi final dari kelas **Membangun Sistem Machine Learning**, yang mencakup keseluruhan alur MLOps mulai dari eksperimen model, tracking, hingga deployment sistem machine learning secara end-to-end.
 
-- **MLflow** — untuk experiment tracking
-- **GitHub Actions** — untuk CI/CD
-- **Docker** — untuk containerization
+## 🎯 Tujuan
+
+- Membangun pipeline machine learning yang terstruktur dan dapat direproduksi
+- Melakukan tracking eksperimen menggunakan **MLflow**
+- Mengimplementasikan CI/CD untuk proses training dan deployment model
+- Melakukan containerization sistem menggunakan **Docker**
+- Menyediakan sistem monitoring untuk model yang telah di-deploy
+
+## 🛠️ Tools & Teknologi
+
+| Kategori             | Tools/Teknologi      |
+|-----------------------|-----------------------|
+| Experiment Tracking   | MLflow                |
+| CI/CD                 | GitHub Actions        |
+| Containerization      | Docker                |
+| Monitoring            | Prometheus & Grafana  |
+| Bahasa Pemrograman    | Python                |
 
 ## 📁 Struktur Folder
 
 ```
-Workflow-CI/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
+Submission/
 ├── MLProject/
 │   ├── conda.yaml
 │   ├── MLproject
 │   └── modelling.py
+├── Workflow-CI/
+│   ├── .github/workflows/
+│   ├── MLProject/
+│   └── Dockerfile
+├── Monitoring dan Logging/
+│   ├── prometheus.yml
+│   ├── inference.py
+│   └── dashboard/
 ├── data/
-│   └── bank_marketing.csv
-├── Dockerfile
 ├── requirements.txt
 └── README.md
 ```
@@ -30,8 +52,8 @@ Workflow-CI/
 
 ```bash
 # Clone repository
-git clone https://github.com/username/Workflow-CI.git
-cd Workflow-CI
+git clone https://github.com/username/submission-mlops.git
+cd submission-mlops
 
 # Install dependencies
 pip install -r requirements.txt
@@ -40,25 +62,13 @@ pip install -r requirements.txt
 mlflow run MLProject/
 ```
 
-## 🐳 Menjalankan dengan Docker
+## ✅ Kriteria Submisi
 
-```bash
-# Build image
-docker build -t bank-marketing-mlops .
-
-# Jalankan container
-docker run -p 5000:5000 bank-marketing-mlops
-```
-
-## ⚙️ CI/CD Pipeline
-
-Pipeline CI/CD dijalankan otomatis melalui **GitHub Actions** setiap kali ada `push` atau `pull_request` ke branch `main`, dengan tahapan:
-
-1. Checkout repository
-2. Setup environment (Python & dependencies)
-3. Menjalankan MLflow project
-4. Build & push Docker image (opsional)
+- [x] Eksperimen model dengan MLflow Tracking
+- [x] Workflow CI menggunakan GitHub Actions
+- [x] Containerization dengan Docker
+- [x] Sistem monitoring dan logging model
 
 ## 📄 Lisensi
 
-Proyek ini menggunakan lisensi **MIT License**.
+Proyek ini dibuat sebagai bagian dari submisi kelas **Membangun Sistem Machine Learning** dan menggunakan lisensi **MIT License**.
