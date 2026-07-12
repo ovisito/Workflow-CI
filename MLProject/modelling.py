@@ -7,12 +7,22 @@ from sklearn.metrics import accuracy_score, classification_report
 import mlflow
 import mlflow.sklearn
 import os
+import argparse   # <-- Tambahkan ini
 
-print("📂 Loading data...")
-X_train = pd.read_csv("namadataset_preprocessing/X_train.csv")
-X_test = pd.read_csv("namadataset_preprocessing/X_test.csv")
-y_train = pd.read_csv("namadataset_preprocessing/y_train.csv").values.ravel()
-y_test = pd.read_csv("namadataset_preprocessing/y_test.csv").values.ravel()
+# 1. Setup argument parser
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_path", type=str, default="namadataset_preprocessing",
+                    help="Path ke folder dataset yang sudah dipreprocess")
+args = parser.parse_args()
+
+# 2. Gunakan data_path untuk membangun path file
+data_path = args.data_path
+
+print("📂 Loading data from:", data_path)
+X_train = pd.read_csv(os.path.join(data_path, "X_train.csv"))
+X_test  = pd.read_csv(os.path.join(data_path, "X_test.csv"))
+y_train = pd.read_csv(os.path.join(data_path, "y_train.csv")).values.ravel()
+y_test  = pd.read_csv(os.path.join(data_path, "y_test.csv")).values.ravel()
 
 print("💪 Training model...")
 model = RandomForestClassifier(n_estimators=100, random_state=42)
